@@ -52,3 +52,45 @@ describe("splitArray tests", () => {
     expect(splitArray(fiveArray)).toEqual(result);
   });
 });
+
+describe("mergeArrays tests", () => {
+  it("works with two empty arrays", () => {
+    expect(mergeArrays([], [])).toEqual([]);
+  });
+
+  it("works with right side empty", () => {
+    expect(mergeArrays([3], [])).toEqual([3]);
+  });
+
+  it("works with left side empty", () => {
+    expect(mergeArrays([], [3])).toEqual([3]);
+  });
+
+  it("works with left one, right one", () => {
+    expect(mergeArrays([4], [3])).toEqual([3, 4]);
+  });
+
+  it("works with left two, right one", () => {
+    expect(mergeArrays([2, 4], [3])).toEqual([2, 3, 4]);
+  });
+
+  it("works with left one, right two", () => {
+    expect(mergeArrays([4], [3, 5])).toEqual([3, 4, 5]);
+  });
+
+  it("works with left two, right two", () => {
+    expect(mergeArrays([4], [3, 5])).toEqual([3, 4, 5]);
+  });
+
+  it("works with left two, right three", () => {
+    expect(mergeArrays([1, 4], [1, 3, 5])).toEqual([1, 1, 3, 4, 5]);
+  });
+
+  it("works with left three, right two", () => {
+    expect(mergeArrays([2, 4, 8], [3, 5])).toEqual([2, 3, 4, 5, 8]);
+  });
+
+  it("works with left three, right three", () => {
+    expect(mergeArrays([2, 4, 8], [3, 5, 11])).toEqual([2, 3, 4, 5, 8, 11]);
+  });
+});
