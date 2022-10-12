@@ -53,7 +53,7 @@ describe("splitArray tests", () => {
   });
 });
 
-describe.only("mergeArrays tests", () => {
+describe("mergeArrays tests", () => {
   it("works with two empty arrays", () => {
     expect(mergeArrays([], [])).toEqual([]);
   });
@@ -92,5 +92,29 @@ describe.only("mergeArrays tests", () => {
 
   it("works with left three, right three", () => {
     expect(mergeArrays([2, 4, 8], [3, 5, 11])).toEqual([2, 3, 4, 5, 8, 11]);
+  });
+});
+
+describe("mergeSort tests", () => {
+  it("works with zero elements", () => {
+    expect(mergeSort([])).toEqual([]);
+  });
+  it("works with one elements", () => {
+    expect(mergeSort([3])).toEqual([3]);
+  });
+  it("works with two elements", () => {
+    expect(mergeSort([4, 3])).toEqual([3, 4]);
+  });
+  it("works with three elements", () => {
+    expect(mergeSort([3, 4, 3])).toEqual([3, 3, 4]);
+  });
+  it("works with four elements", () => {
+    expect(mergeSort([3, 4, 1, 3])).toEqual([1, 3, 3, 4]);
+  });
+  it("works with five elements", () => {
+    expect(mergeSort([24, 3, 4, 1, 3])).toEqual([1, 3, 3, 4, 24]);
+  });
+  it("works with arrays already sorted", () => {
+    expect(mergeSort([1, 3, 3, 4, 24])).toEqual([1, 3, 3, 4, 24]);
   });
 });
