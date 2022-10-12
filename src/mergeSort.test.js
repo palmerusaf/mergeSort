@@ -53,7 +53,7 @@ describe("splitArray tests", () => {
   });
 });
 
-describe("mergeArrays tests", () => {
+describe.only("mergeArrays tests", () => {
   it("works with two empty arrays", () => {
     expect(mergeArrays([], [])).toEqual([]);
   });

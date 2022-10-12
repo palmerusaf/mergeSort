@@ -9,19 +9,15 @@ export const splitArray = (array) => {
 };
 
 export const mergeArrays = (left, right) => {
-  let i = 0;
-  let j = 0;
-
   const result = [];
-  let k = 0;
+  const merge = (array) => result.push(array.shift());
 
-  while (i < left.length && j < right.length) {
-    if (left[i] < right[j]) result[k++] = left[i++];
-    else result[k++] = right[j++];
+  while (left.length && right.length) {
+    left[0] < right[0] ? merge(left) : merge(right);
   }
 
-  for (; i < left.length; i++) result[k++] = left[i];
-  for (; j < right.length; j++) result[k++] = right[j];
+  while (left.length) merge(left);
+  while (right.length) merge(right);
 
   return result;
 };
